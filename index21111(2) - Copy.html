@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+
+    
+    <head>
+    
+        <title>BANKING SYSTEM MINIA</title>
+        
+        <meta charset="utf-8">
+        
+        
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <xml ID="accounts.xml"
+SRC="acc2.xml"></xml>
+         <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500italic,600italic,600,700,700italic,300italic,300,400,400italic,800,900' rel='stylesheet' type='text/css'>
+        
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600italic,700,900' rel='stylesheet' type='text/css'>
+        
+               <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+             
+    </head>
+    
+    
+    <body>  
+             <div class="header-overlay" style="background-image: url(images/header-bg.jpg);background-position:right;background-attachment: fixed;background-size:auto;background-repeat: no-repeat;background-blend-mode:overlay">
+               
+              	<div class="container header-container">
+                  <div style="object-fit: contain">
+                    <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">News</a></li>
+                     <li><a href="#">Contact</a></li>
+                     <li><a href="#">About</a></li>
+                     </ul>
+                 </div>
+                    <div class="row">
+                    
+                        <div class="col-md-12">
+                        
+                            <!-- Logo -->
+                            <div class="logo text-center">
+                            
+                                <img src="images/logo.png" alt="logo">
+                            
+                            </div>
+                        
+                        </div>
+                        
+                    
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-sm-12 wow fadeInDown">
+                        
+                            <div class="header-text" style="text-align: center">
+                            
+                                <!-- Title & Description -->
+                                <h1 style="font-display: block;text-align:cneter;font-weight: 300;text-shadow:2px 2px #ff0000">BRIDGING THE GAP OF CAPITALISM</h1>
+                                <h1> CALCULATE YOUR INTREST RATES </h1>
+                                <h1>COMPARE POLICIES</h1>
+                                <h1>CHECK CREDIT SCORE</h1>
+                               <h5 style="color:red">Login is accesing xml file. So for evaluation of miniproject consider typing only those username and password i.e user1-4 and password as pass1-4.  XML file will be created offline as it happens in all banks.</h5>
+                            
+                            </div>
+                            
+                                
+                            
+                            </div>
+                            
+                        </div>
+                        
+                            
+                        </div>
+                        
+                        
+                    </div>
+            
+        
+        
+        <!--Rasing the level-->
+        <section id="ABOUT">
+        
+            <div  style="background-image: url(images/business-finance.jpeg);background-blend-mode: darken" id="login">
+                <script type="text/javascript">
+          function ann(){
+            var a;
+            var a1=document.getElementById("name").value;
+            var a2=document.getElementById("passwd").value;
+            var an = new XMLHttpRequest();
+              var j=0;
+            an.open('GET','accounts.xml',false);
+            an.send();
+            var xmlData=an.responseXML;
+            if(!xmlData){
+                xmlData=(new DOMParser()).parseFromString(an.responseText,'text/xml');
+            }
+            var emp=xmlData.getElementsByTagName("DETAILS");
+           /* alert((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==(a2));
+            alert(emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data);
+            alert(emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data);*/
+            var i=emp.length;
+            //alert(i);
+            while(i){
+                    //alert(i);
+                    if(((emp[i].getElementsByTagName("PASSWORD")[0].getAttribute("name"))==a2)&&((emp[i].getElementsByTagName("USERNAME")[0].getAttribute("name"))==a1)){
+                        alert(a1+"logged in!");j=i;break;
+                    }else{
+                        alert("after while loop nothing found");
+                    };
+                    i--;
+                }
+           
+              
+              document.getElementById("extra").setAttribute('value',j);
+              a= ("<h3>Username:"+" "+(emp[j].getElementsByTagName("USERNAME")[0].getAttribute("name"))+"</h3>\n<h3>AccountBalance:  "+(emp[j].getElementsByTagName("DEBT")[0].getAttribute("name"))+"</h3>\n<h3>Email:  "+(emp[j].getElementsByTagName("EMAIL")[0].getAttribute("name"))+"</h3");
+              //alert(document.getElementById("extra").getAttribute('value'));
+              //alert(a);
+              document.getElementById("invi").innerHTML=(a);
+            // alert(a);
+        }
+                    function ann2(){
+                        //alert("insideannnow");
+                        var b1=document.getElementById("namenew").value;
+                        var b2=document.getElementById("passwdnew").value;
+                        var b3=document.getElementById("debtnew").value;
+                        //alert("insideann");
+                        var ann3 = new XMLHttpRequest();
+              
+            ann3.open('GET','accounts.xml',false);
+            ann3.send();
+            var xmlDataa=ann3.responseXML;
+            if(!xmlDataa){
+                xmlDataa=(new DOMParser()).parseFromString(ann3.responseText,'text/xml');
+            }
+                        var emp1=xmlDataa.getElementsByTagName("DETAILS");
+                emp1[3].getElementsByTagName("USERNAME")[0].setAttribute("name",b1);
+                emp1[3].getElementsByTagName("PASSWORD")[0].setAttribute("name",b2);
+                emp1[3].getElementsByTagName("EMAIL")[0].setAttribute("name",b3);
+                       
+                        alert("inserted");
+                    }
+    </script>
+
+		<!--CUSTOMER AND PASSWORD INPUT BUTTONS-->
+                 <script type="text/javascript">
+                function showDiv2(element){
+                     document.getElementById("logon").style.display = element.value == 0 ? 'block' : 'none';
+                     document.getElementById("new").style.display = element.value == 1 ? 'block' : 'none';
+                     
+                }
+            </script>
+		    <select class="btn" id="test" type="button" name="form_select" onchange="showDiv2(this)">
+                            <option value="0">Login</option>
+                            <option value="1">Create Account</option>
+                    </select>
+                <style>
+                        #logon{
+                            display: none
+                        }
+                        #new{
+                            display: none
+                        }
+                        
+                    </style>
+                
+                <div class="container" style="text-align:center;color:white;center;font-style:cursieve" id="logon">
+              
+                    
+                        <h3 style="font-family: cursive">Customer Name: </h3>
+                       <input type="text" name="customer name" style="color:black" placeholder="Enter custumer name" id="name">
+                  
+                    
+                        <h3 style="font-family:cursive">Password: </h3>
+                        <input type="text" id="passwd" style="color:black" placeholder="Enter password"><br>
+                        <hr>
+                    <button class="btn btn-success" type="button" onclick="ann()">LOGIN AND DISPLAY</button>
+                   
+                </div>
+                
+                <div class="container" style="text-align:center;color:white;center;font-style:cursieve" id="new">
+                     <script type="text/javascript">
+                   
+                </script>
+                    <h3 style="font-family: cursive">New Customer Name: </h3>
+                       <input type="text" style="color:black" placeholder="Set custumer name" id="namenew">
+                  
+                    
+                        <h3 style="font-family:cursive">Set Password: </h3>
+                        <input type="text" id="passwdnew" style="color:black" placeholder="Set password"><br>
+                    
+                        <h3 style="font-family:cursive">Email: </h3>
+                        <input type="text" id="debtnew" style="color:black" placeholder="Enter email"><br>
+                        <hr>
+                    <button class="btn btn-success" type="button" onclick="ann2()">CREATE ACCOUNT</button>
+                  
+                </div>
+                <div id="extraaa" style="content: center"></div>
+                <!--login script-->
+    <hr><hr>
+              
+                <!--end of login script-->
+                
+                </div>
+            
+                    <script type="text/javascript">
+                function showDiv(element){
+                     document.getElementById("simpleint").style.display = element.value == 0 ? 'block' : 'none';
+                     document.getElementById("compint").style.display = element.value == 1 ? 'block' : 'none';
+                     document.getElementById("liqcalc").style.display = element.value == 2 ? 'block' : 'none';
+                }
+            </script>
+                <div class="container" style="text-align:center;font-style:cursieve">
+                    <select class="btn" id="test" type="button" name="form_select" onchange="showDiv(this)">
+                            <option value="0">Simple interest</option>
+                            <option value="1">Compound interest</option>
+                            <option value="2">Liquidity Calculation</option>
+                    </select>
+                    <style>
+                        #simpleint{
+                            display: none
+                        }
+                        #compint{
+                            display: none
+                        }
+                        #liqcalc{
+                            display:  none
+                        }
+                    </style>
+                    <div id="simpleint"> 
+                        Principal:<input type="number" id="principal">
+                        Intrest per anum:<input type="number" id="intr">
+                        Year:<input type="number" id="yr">
+                        <button class="btn-success" onClick="sical()">Calculate</button>
+                        <script type="text/javascript">
+                            function sical(){
+                            var princ=document.getElementById("principal").value;
+                            var pcpa=document.getElementById("intr").value;
+                            var yr=document.getElementById("yr").value;
+                            var res=((princ*pcpa*yr)/100);
+                            document.getElementById("liq1").innerHTML=("Result:"+res);
+                            }
+                        </script>
+                        <div id="liq1"></div>
+                    </div>
+                    <div id="compint">
+                        Principal: <input type="number" id ="principal2"> 
+                        Intrest per anum:<input type="number" id="intr2">
+                        Year:<input type="number" id="yr2">
+                        <button class ="btn-success" onClick="comp()">Find Compound Interest</button>
+                        <script type ="text/javascript">
+                        function comp(){
+                            var princ=document.getElementById("principal2").value;
+                            var pcpa=document.getElementById("intr2").value;
+                            var yr=document.getElementById("yr2").value;
+                            var pcpaa=pcpa/100;
+                            var res1=((princ*(Math.pow(1+pcpaa),yr))-princ);
+                            //alert(res1);
+                            document.getElementById("liq2").innerHTML("Result :"+res1);
+
+                        } 
+                        </script>
+                      <div id="liq2"></div>
+                    </div>
+                    <div id="liqcalc">
+                        Principal:<input type="number" id="principal3">
+                        Returns claimed:<input type="number" id="intr3">
+                        
+                        <button class="btn-success" onClick="nmu()">Calculate</button>
+                            <script type="text/javascript">
+                            function nmu(){
+                            var princ=document.getElementById("principal3").value;
+                            var pcpa=document.getElementById("intr3").value;
+                            var res=((princ*pcpa)/100);
+                            document.getElementById("liq3").innerHTML("Profit :"+res);
+                            }
+                        </script>
+                       <div id="liq3"></div>
+                    </div>
+                </div>
+            
+            <div class="container-fluid" id="calculator">
+                    
+                </div>
+            <div class="choose-us-wraper">
+            
+                <div class="container">
+                
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                            <div class="about-iphone wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                            
+                                <img class="img-responsive" src="images/banking-books-related.jpeg" alt="iphone">
+                            
+                            </div>
+                        
+                            <div id="invi" style="color: red" class="about-iphone wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s" style="background-image: url(images/texture.jpg);background-size: contain"> 
+                            
+                                <!--<button class="btn-info" onclick="any()">BUTTON</button><br><br>-->
+                         
+                            </div>
+                        
+                        </div>
+                                                    
+                                                   <!--calculations end here-->
+                                                    
+                        <div class="col-md-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                        
+                            <!-- Why choose us title -->
+                            <div class="choose-us-title">
+                                <h2 style="text-align:center;font-style: oblique;text-shadow: 2px 2px #000"> : COMMITTED TO CUSTOMER FRIENDLINESS :</h2>
+                          
+                        
+                            </div>
+                            
+                            <div class="choose-us-des">
+                            
+                                <!-- choose us item 1 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-bolt"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family:cursive;font-display: swap">main prospects :</h3>
+                                    <p>The customer would be contacted ordinarily at the place of his/her <b>choice</b> and in the absence of any <b>specified place</b>., at the <b>place of </b>his/her <b>residence</b> and if unavailable at his/her residence, at the <b>place of business/occupation.</b></p>
+                        
+                                
+                                </div>
+                                
+                                
+                                <!-- choose us item 2 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-bullhorn"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family: cursive">Policies include:</h3>
+				    <p>
+				    <ul>
+                                         <li>😊  Identity Theft</li><br>
+                                         <li>💻  E-Banking</li><br>
+                                         <li>😥  Problem Loans</li><br>
+					 <li>📢  Foreclosures</li><br>
+                                         <li>🤫  Private Banking</li><br>
+					 <li>📈  Strategic Planning</li><br>
+					 <li>🎭  Capital and Dividend Planning</li><br>
+					 <li>🔒  Customer Data Protection/Privacy</li><br>
+					 <li>🎏  Loan Review and Credit Scoring</li><br>
+                                    </ul>
+				    </p>
+                                
+                                </div>
+                                
+                                
+                                 <!-- choose us item 3 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-flag-o"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family: cursive">Global Policy</h3>
+                                    <p> To end extreme poverty, by reducing the share of the global population that lives in extreme poverty to 3% by 2030. To promote shared prosperity, by <b>increasing the incomes of the poorest 40% of people</b> in every country.</p>
+                                
+                                </div>                  
+                        </div>        
+                 </div>
+               </div>
+             </div>
+        </section>
+     <!-- Testimonials -->
+        <section class="testimonial">
+          <div class="testimonial-overlay">
+                <div class="container">
+                 <div class="row">
+                     <div class="col-md-12  bounceInDown">
+                         <div id="carousel-testimonial" class="carousel slide" data-ride="carousel">
+                            
+                              <div style="justify-content: center;align-content: center">
+                                <!-- indicators -->
+                                <ol class="carousel-indicators" style="align-content: center">
+                                    <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+                                </ol>
+                                </div>
+                                
+                                <!-- wrapper for slides -->
+                                <div class="carousel-inner">
+                                
+                                
+                                    <!-- item 01 -->
+                                    <div class="item active text-center">
+                                    
+                                    
+                                        <img src="images/client-003.jpg" style="background-size: contain" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>CRYPTOCURRENCY BITCOIN (BTC) ETHEREUM (ETH)</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    <!-- item 02 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/client-001.jpg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>Convenient customers care services</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    
+                                    <!-- item 03 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/client-002.jpeg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>High Cyber security providers </h2>
+                                        
+                                        </div>                                   
+                                    </div>                               
+                                </div>                              
+                            </div>                      
+                        </div>                     
+                    </div>             
+                </div>         
+            </div><!--testned-->     
+        </section>
+   |    <section><div>*T&C applicable </div></section>
+        <!-- Counters -->
+        <section class="counter">    
+            <div class="counter-overlay">        
+                <div class="container wow bounceInLeft" data-wow-duration="1s">                
+                    <div class="row text-center">              
+                        <div class="col-md-6">                   
+                            <div class="counter-item">                        
+                                <div><i class="fa fa-check"></i></div>
+                                <h2><span class="counter-num"> 150 </span><span>+</span></h2>
+                                <p>Views</p>
+                            </div>                   
+                        </div>                    
+                        <div class="col-md-6">                   
+                            <div class="counter-item">                       
+                                <div><i class="fa fa-heart-o"></i></div>
+                                <h2><span class="counter-num"> 1000000000 </span><span>+</span></h2>
+                                <p>loves to you all!</p>
+                            </div>                       
+                        </div>                   
+                    </div>              
+                </div>           
+            </div>             
+        </section>
+        <section>       
+        </section>       
+        <!-- Footer -->
+        <footer class="footer">       
+            <div class="container">           
+                <div class="row">                
+                    <div class="col-md-6">                   
+                        <div id="copyright">
+                            <p>Copyright &copy; 2019 <a href="#"> - BANKING SYSTEM MINIA</a></p>
+                            <p><small>Designed by -<i> Salik Sayyed</i> (S.Y. comp)</small></p>
+                            <p><small>Secured by -<i> Chirag Ratvekar</i> (S.Y. comp)</small></p>
+                            <p><small>Coded by -<i> Shyam Sulbhewar</i> (S.Y. comp)</small></p>                        
+                        </div>
+                    </div>
+                    <div class="col-md-6">                  
+                            <div class="scroll-top">
+                                <a href="#HOME" id="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+                            </div>
+                    </div>               
+                </div>
+            </div>
+        <p id="extra" value="2"></p>        
+        </footer>       
+    </body>
+</html>

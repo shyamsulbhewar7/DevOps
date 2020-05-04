@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACCOUNTS>
+
+<DETAILS>
+<USERNAME name="user1">user1</USERNAME>
+<PASSWORD name="pass1">pass1</PASSWORD>
+<EMAIL name="user1@abc.com">user1@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>cxvxc</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+
+<DETAILS>
+<USERNAME name="user2">user2</USERNAME>
+<PASSWORD name="pass2">pass2</PASSWORD>
+<EMAIL name="user2@abc.com">user2@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>df</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+
+<DETAILS>
+<USERNAME name="user3">user3</USERNAME>
+<PASSWORD name="pass3">pass3</PASSWORD>
+<EMAIL name="user3@abc.com">user3@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>dfdsf</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+
+<DETAILS>
+<USERNAME name="user4">user4</USERNAME>
+<PASSWORD name="pass4">pass4</PASSWORD>
+<EMAIL name="user4@abc.com">user4@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>dfsdf</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+    
+<DETAILS>
+<USERNAME name="user5">user5</USERNAME>
+<PASSWORD name="pass5">pass5</PASSWORD>
+<EMAIL name="user5@abc.com">user5@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>dfsdf</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+    
+<DETAILS>
+<USERNAME name="user6">user6</USERNAME>
+<PASSWORD name="pass6">pass6</PASSWORD>
+<EMAIL name="user6@abc.om">user6@abc.com</EMAIL>
+<BALANCE></BALANCE>
+<DEBT>dfsdf</DEBT>
+<liquidityrate></liquidityrate>
+</DETAILS>
+
+
+</ACCOUNTS>

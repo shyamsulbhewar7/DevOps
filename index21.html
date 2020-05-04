@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html>
+
+    
+    <head>
+    
+        <title>JUNIOFIESTA</title>
+        
+        <meta charset="utf-8">
+        
+        <meta name="description" content="Simple, clean, responsive website built with html5, CSS3, Js, jQuery and Bootstrap">
+        
+        <!--<meta name="keywords" content="web, design, html, css, html5, css3, javascript, jquery, bootstrap, development">-->
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <xml ID="accounts.xml"
+SRC="acc2.xml"></xml>
+         <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500italic,600italic,600,700,700italic,300italic,300,400,400italic,800,900' rel='stylesheet' type='text/css'>
+        
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600italic,700,900' rel='stylesheet' type='text/css'>
+        
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <!-- Fontawesome  -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        
+        <!-- Animate CSS -->
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <!-- BX slider CSS -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
+        
+        <!-- responsive css -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+        <link rel="xml" type="text/responseXML" href="accounts.xml">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+             
+    </head>
+    
+    
+    <body>  
+             <div class="header-overlay" style="background-image: url(images/header-bg.jpg);background-position:right;background-attachment: fixed;background-size:auto;background-repeat: no-repeat;background-blend-mode:overlay">
+               
+              	<div class="container header-container">
+                  <div style="object-fit: contain">
+                    <ul>
+                     <li><a href="default.asp">Home</a></li>
+                     <li><a href="news.asp">News</a></li>
+                     <li><a href="contact.asp">Contact</a></li>
+                     <li><a href="about.asp">About</a></li>
+                     </ul>
+                 </div>
+                    <div class="row">
+                    
+                        <div class="col-md-12">
+                        
+                            <!-- Logo -->
+                            <div class="logo text-center">
+                            
+                                <img src="images/logo.png" alt="logo">
+                            
+                            </div>
+                        
+                        </div>
+                        
+                    
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-sm-12 wow fadeInDown">
+                        
+                            <div class="header-text" style="text-align: center">
+                            
+                                <!-- Title & Description -->
+                                <h1 style="font-display: block;text-align:cneter;font-weight: 300;text-shadow:2px 2px #ff0000">BRIDGING THE GAP OF CAPITALISM</h1>
+                                <h1> CALCULATE YOUR INTREST RATES </h1>
+                                <h1>COMPARE POLICIES</h1>
+                                <h1>CHECK CREDIT SCORE</h1>
+                            
+                            
+                            </div>
+                            
+                                
+                            
+                            </div>
+                            
+                        </div>
+                        
+                            
+                        </div>
+                        
+                        
+                    </div>
+            
+        
+        
+        <!--Rasing the level-->
+        <section id="ABOUT">
+        
+            <div  style="background-image: url(images/joy4.jpg);background-blend-mode: darken" id="login">
+                <script type="text/javascript">
+          function ann(){
+            var a;
+            var a1=document.getElementById("name").value;
+            var a2=document.getElementById("passwd").value;
+            var an = new XMLHttpRequest();
+              var j=0;
+            an.open('GET','accounts.xml',false);
+            an.send();
+            var xmlData=an.responseXML;
+            if(!xmlData){
+                xmlData=(new DOMParser()).parseFromString(an.responseText,'text/xml');
+            }
+            var emp=xmlData.getElementsByTagName("DETAILS");
+           /* alert((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==(a2));
+            alert(emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data);
+            alert(emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data);*/
+            var i=emp.length;
+            if(((emp[0].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[0].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=0;
+            }else{
+                if(((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[1].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=1;
+            }else{
+                if(((emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[2].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=2;
+            }else{
+                if(((emp[3].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[3].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=3;
+            };
+            };
+            };
+            };
+            /*  while(i>=0){alert(i);i=i-1;}
+              alert("outside first while");
+            while(i>=0){
+              alert(i);
+                var name=emp[i].getElementsByTagName("USERNAME")[0].firstChild.data;
+                var pass=emp[i].getElementByTagName("PASSWORD")[0].firstChild.data;
+                i=i-1;
+          if((a1==name)&&(a2==pass)){
+                alert("logged in!");
+                
+             }
+                
+            }  */
+              
+              document.getElementById("extra").setAttribute('value',j);
+              a= ("Username:"+" "+(emp[j].getElementsByTagName("USERNAME")[0].firstChild.data)+"\nDebt:  "+(emp[j].getElementsByTagName("DEBT")[0].firstChild.data)+"\nEmail:  "+(emp[j].getElementsByTagName("EMAIL")[0].firstChild.data));
+              alert(document.getElementById("extra").getAttribute('value'));
+              alert(a);
+              document.getElementById("extraaa").insertAdjacentHTML('beforeend',a);
+            // alert(a);
+        }
+    </script>
+                <div id="frm">
+                <h3 style="font-family: cursive">Customer Name: </h3><input id="name">
+                <h3 style="font-family:cursive">Password: </h3><input id="passwd">
+                <button id="btn "class="btn-info" onClick="ann()">Display information</button>
+                </div>
+                <!--login script-->
+    
+              
+                <!--end of login script-->
+                
+                </div>
+            
+                    <script type="text/javascript">
+                function showDiv(element){
+                     document.getElementById("simpleint").style.display = element.value == 0 ? 'block' : 'none';
+                     document.getElementById("compint").style.display = element.value == 1 ? 'block' : 'none';
+                     document.getElementById("liqcalc").style.display = element.value == 2 ? 'block' : 'none';
+                }
+            </script>
+                <div style="object-fit: contain" id="extra2">
+                    <select id="test" name="form_select" onchange="showDiv(this)">
+                            <option value="0">Simple interest</option>
+                            <option value="1">Compound interest</option>
+                            <option value="2">Liquidity Calculation</option>
+                    </select>
+                    <style>
+                        #simpleint{
+                            display: none
+                        }
+                        #compint{
+                            display: none
+                        }
+                        #liqcalc{
+                            display:  none
+                        }
+                    </style>
+                    <div id="simpleint"> 
+                        Principal:<input type="number" id="principal">
+                        Intrest per anum:<input type="number" id="intr">
+                        Year:<input type="number" id="yr">
+                        <button class="btn-success" onClick="sical()">Calculate</button>
+                        <script type="text/javascript">
+                            function sical(){
+                            var princ=document.getElementById("principal").value;
+                            var pcpa=document.getElementById("intr").value;
+                            var yr=document.getElementById("yr").value;
+                            var res=((princ*pcpa*yr)/100);
+                            document.getElementById("simpleint").insertAdjacentHTML('beforeend','Result:'+res);
+                            }
+                        </script>
+                    </div>
+                    <div id="compint">
+                        Principal: <input type="number" id ="principal2"> 
+                        Intrest per anum:<input type="number" id="intr2">
+                        Year:<input type="number" id="yr2">
+                        <button class ="btn-success" onClick="comp()">Find Compound Interest</button>
+                        <script type ="text/javascript">
+                        function comp(){
+                            var princ=document.getElementById("principal2").value;
+                            var pcpa=document.getElementById("intr2").value;
+                            var yr=document.getElementById("yr2").value;
+                            var pcpaa=pcpa/100;
+                            var res1=((princ*(Math.pow(1+pcpaa),yr))-princ);
+                            alert(res1);
+                            document.getElementById("compint").insertAdjacentHTML('beforeend','Result :'+res1);
+
+                        } 
+                        </script>
+                    
+                    </div>
+                    <div id="liqcalc">
+
+                    
+                    </div>
+                </div>
+            <p id="extraaa"></p>
+            
+            <div class="container-fluid" id="calculator">
+                    
+                </div>
+            <div class="choose-us-wraper">
+            
+                <div class="container">
+                
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        
+                            <div id="invi" style="color: red" class="about-iphone wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s" style="background-image: url(images/invitation.jpeg)">
+                            
+                                <button class="btn-info" onclick="any()">BUTTON</button><br><br>
+                                <script type="text/javascript">
+                                    function any(){
+                                        var a1=document.getElementById("name").value;
+            var a2=document.getElementById("passwd").value;
+            var an = new XMLHttpRequest();
+            an.open('GET','accounts.xml',false);
+            an.send();
+            var xmlData=an.responseXML;
+            if(!xmlData){
+                xmlData=(new DOMParser()).parseFromString(an.responseText,'text/xml');
+            }
+            var emp=xmlData.getElementsByTagName("DETAILS");
+            
+            var tes="<br><table style=\"width:100%\">";
+            var i= document.getElementById("extra").getAttribute("value");
+            var a=emp[i].getElementsByTagName("USERNAME")[0].firstChild.data;
+            var b=emp[i].getElementsByTagName("EMAIL")[0].firstChild.data;
+            var c=emp[i].getElementsByTagName("DEBT")[0].firstChild.data;
+                                        
+            doucment.getElementById("extra2").writeln(a+"<hr>"+b+"<hr>"+c+"<hr>");
+     
+            
+         
+              alert("second while ended");
+                                    }
+                                
+                                </script>
+                            </div>
+                        
+                        </div>
+                        
+                        <div class="col-md-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                        
+                            <!-- Why choose us title -->
+                            <div class="choose-us-title">
+                                <h2 style="text-align:center;font-style: oblique;text-shadow: 2px 2px #000"> JUNIOFIESTA 2K19</h2>
+                                <p style="texgt-align:center;text-align:center">Where excitement awaits your presence!
+                                </p><p style="text-align:center;text-decoration:underline;text-decoration-style:solid;font-style: oblique">On 15th Sept</p><p style="text-align:center">At morning 11 o'clock</p>
+                                <p style="text-align:center">Hall no. 225 </p></p>
+                        
+                            </div>
+                            
+                            <div class="choose-us-des">
+                            
+                                <!-- choose us item 1 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-bolt"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family:cursive;font-display: swap">next level enthusiasm</h3>
+                                    <p>Each event is filled with enjoyment.</p>
+                        
+                                
+                                </div>
+                                
+                                
+                                <!-- choose us item 2 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-bullhorn"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family: cursive">disk jokey</h3>
+                                    <p>
+                                    Because Enjoyment is incomplete without dance and music.
+                                    </p>
+                                
+                                </div>
+                                
+                                
+                                 <!-- choose us item 3 -->
+                                <div class="choose-us-item wow fadeInUp" data-wow-duration=".5s" data-wow-delay="1s">
+                                    
+                                    <!-- choose us item icon -->
+                                    <div><i class="fa fa-flag-o"></i></div>
+                                    
+                                    <!-- choose us item title & des -->
+                                    <h3 style="font-family: cursive">activites</h3>
+                                    <p>The act of fun is when we are together to laugh on one thing.  The party will include all the fun you ever wanted.</p>
+                                
+                                </div>
+                                
+                                
+                            
+                            </div>
+                            
+                            
+                            
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+        
+        
+        </section>
+        
+        
+        <!-- Testimonials -->
+        <section class="testimonial">
+        
+            <div class="testimonial-overlay">
+            
+                <div class="container">
+                
+                    <div class="row">
+                    
+                        <div class="col-md-12 wow bounceInDown">
+                        
+                        
+                            <div id="carousel-testimonial" class="carousel slide" data-ride="carousel">
+                            
+                            
+                                <!-- indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+                                </ol>
+                                
+                                
+                                <!-- wrapper for slides -->
+                                <div class="carousel-inner">
+                                
+                                
+                                    <!-- item 01 -->
+                                    <div class="item active text-center">
+                                    
+                                    
+                                        <img src="images/client-001.jpg" style="background-size: contain" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>banking system</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    <!-- item 02 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/client-002.jpeg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>banking system</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    
+                                    <!-- item 03 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/client-003.jpg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>Banking system</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    
+                                    
+                                
+                                </div>
+                                
+                                
+                            </div>
+                        
+                        
+                        
+                        </div>
+                        
+                        
+                    </div>
+                
+                
+                </div>
+            
+            
+            </div><!--testned-->
+        
+        
+        
+        </section>
+   |    <section><div>!!Video will appear here!!</div></section>
+        <!-- Counters -->
+        <section class="counter">
+        
+            <div class="counter-overlay">
+            
+                <div class="container wow bounceInLeft" data-wow-duration="1s">
+                    
+                    <div class="row text-center">
+                    
+                        <div class="col-md-6">
+                        
+                            <div class="counter-item">
+                            
+                                <div><i class="fa fa-check"></i></div>
+                                <h2><span class="counter-num"> 150 </span><span>+</span></h2>
+                                <p>Views</p>
+                            </div>
+                        
+                        </div>
+                        
+                        
+                        <div class="col-md-6">
+                        
+                            <div class="counter-item">
+                            
+                                <div><i class="fa fa-heart-o"></i></div>
+                                <h2><span class="counter-num"> 1000000000 </span><span>+</span></h2>
+                                <p>loves to you all!</p>
+                            </div>
+                        
+                        </div>
+                        
+                       
+                    
+                        
+                    
+                    </div>
+                    
+                
+                
+                </div>
+            
+            </div>
+            
+              
+        </section>
+        <section>
+        
+        
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+        
+            <div class="container">
+            
+                <div class="row">
+                
+                    <div class="col-md-6">
+                    
+                        <div id="copyright">
+                            <p>Copyright &copy; 2019 <a href="#"> - BANKING SYSTEM MINIa</a></p>
+                            <p><small>Designed by -Salik Sayyed,Chiraj Ratvekar,Shyam Sulbhewar</small></p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    
+                            <div class="scroll-top">
+                                <a href="#HOME" id="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+                            </div>
+                    </div>
+                
+                
+                </div>
+            
+            </div>
+        <p id="extra" value="2"></p>
+        
+        </footer>
+        
+        
+        <!-- Bootstrap JavaScript -->
+       <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Bx Slider JS -->
+        <script src="js/jquery.bxslider.min.js"></script>
+        
+        <!-- Add JS counter lib -->
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        
+        <!-- Add wow js lib -->
+        <script src="js/wow.min.js"></script>
+      
+        <!-- Custom Js -->
+        <script src="js/custom.js"></script>
+        
+    </body>
+
+
+</html>

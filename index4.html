@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html>
+
+    
+    <head>
+    
+        <title>SL-1_PROJECT</title>
+        
+        <meta charset="utf-8">
+        
+        <meta name="description" content="Simple, clean, responsive website built with html5, CSS3, Js, jQuery and Bootstrap">
+        
+        <meta name="keywords" content="web, design, html, css, html5, css3, javascript, jquery, bootstrap, development">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        
+         <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500italic,600italic,600,700,700italic,300italic,300,400,400italic,800,900' rel='stylesheet' type='text/css'>
+        
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600italic,700,900' rel='stylesheet' type='text/css'>
+        
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <!-- Fontawesome  -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        
+        <!-- Animate CSS -->
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <!-- BX slider CSS -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
+        
+        <!-- responsive css -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+        
+             
+    </head>
+    
+    
+    <body>  
+             <div class="header-overlay" style="background-image: url(images/banking.jpg);background-position:right;background-attachment: fixed;background-size:auto;background-repeat: no-repeat;background-blend-mode:overlay">
+               
+              	<div class="container header-container">
+                  <div style="object-fit: contain">
+                    <ul>
+                     <li><a href="default.asp">Home</a></li>
+                     <li><a href="news.asp">News</a></li>
+                     <li><a href="contact.asp">Contact</a></li>
+                     <li><a href="about.asp">About</a></li>
+                     </ul>
+                  </div>
+                    <div class="row">
+                    
+                        <div class="col-md-12">
+                        
+                            <!-- Logo -->
+                            <div class="logo text-center">
+                            
+                                <img src="images/logo.png" alt="logo">
+                            </div>
+                        
+                        </div>
+                        
+                    
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-sm-12 wow fadeInDown">
+                        
+                            <div class="header-text" style="text-align: center">
+                            
+                                <!-- Title & Description -->
+                                <h1 style="font-display: block;text-align:cneter;font-weight: 300;text-shadow:2px 2px #ff0000">BRIDGING THE GAP OF CAPITALISM</h1>
+                                <h1> CALCULATE YOUR INTREST RATES </h1>
+                                <h1>COMPARE POLICIES</h1>
+                                <h1>CHECK CREDIT SCORE</h1>
+                            
+                            
+                            </div>
+                            
+                                
+                            
+                            </div>
+                            
+                        </div>
+                        
+                            
+                        </div>
+                        
+                        
+                    </div>
+            
+        
+        
+        <!--Rasing the level-->
+        <section id="ABOUT">
+        
+            <div class="container" style="background-image: url(images/banner-image2.jpg);background-position:left;background-attachment:fixed;background-blend-mode: darken" id="login">
+                <form id="iddd">
+                <h3 style="font-family: cursive">Customer Name: </h3><input type="text" name="customer name" placeholder="Enter custumer name here">
+                <h3 style="font-family:cursive">Password: </h3><input id="passwd" placeholder="Enter password here">
+                <button class="btn-info" id="b1" onClick="ann()">Display information</button>
+                </form>
+                <script type="text/javascript">
+          function ann(){
+            var a1=document.getElementById("name").value;
+            var a2=document.getElementById("passwd").value;
+            var an = new XMLHttpRequest();
+              var j=0;
+            an.open('GET','accounts.xml',false);
+            an.send();
+            var xmlData=an.responseXML;
+            if(!xmlData){
+                xmlData=(new DOMParser()).parseFromString(an.responseText,'text/xml');
+            }
+            var emp=xmlData.getElementsByTagName("DETAILS");
+           // alert((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==(a2));
+        //    alert(emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data);
+          //  alert(emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data);
+            // var i=emp.length;
+            if(((emp[0].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[0].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=0;
+            }else{
+                if(((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[1].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=1;
+            }else{
+                if(((emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[2].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=2;
+            }else{
+                if(((emp[3].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[3].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=3;
+            };
+            };
+            };
+            };
+            /*  while(i>=0){alert(i);i=i-1;}
+              alert("outside first while");
+            while(i>=0){
+              alert(i);
+                var name=emp[i].getElementsByTagName("USERNAME")[0].firstChild.data;
+                var pass=emp[i].getElementByTagName("PASSWORD")[0].firstChild.data;
+                i=i-1;
+          if((a1==name)&&(a2==pass)){
+                alert("logged in!");
+                
+             }
+                
+            }  */
+             var a= ("Username:"+"<br>"+(emp[j].getElementsByTagName("USERNAME")[0].firstChild.data)+"Debt:<br>"+(emp[j].getElementsByTagName("DEBT")[0].firstChild.data)+"Email:<br>"+(emp[j].getElementsByTagName("EMAIL")[0].firstChild.data));
+             document.getElementById("para").insertAdjacentHTML('beforeend',a);
+        }
+    </script>
+                <p id="para"></p>
+                </div>
+                    <script type="text/javascript">
+                function showDiv(element){
+                     document.getElementById("simpleint").style.display = element.value == 0 ? 'block' : 'none';
+                     document.getElementById("compint").style.display = element.value == 1 ? 'block' : 'none';
+                     document.getElementById("liqcalc").style.display = element.value == 2 ? 'block' : 'none';
+                }
+            </script>
+                <div style="object-fit: contain">
+                    <select id="test" name="form_select" onchange="showDiv(this)">
+                            <option value="0">Simple interest</option>
+                            <option value="1">Compound interest</option>
+                            <option value="2">Liquidity Calculation</option>
+                    </select>
+                    <style>
+                        #simpleint{
+                            display: none
+                        }
+                        #compint{
+                            display:none
+                        }
+                        #liqcalc{
+                            display:none
+                        }
+                    </style>
+                    <div id="simpleint"> 
+                        Principal:<input type="number" id="principal">
+                        Intrest per anum:<input type="number" id="intr">
+                        Year:<input type="number" id="yr">
+                        <button class="btn-success" onClick="sical()">Calculate</button>
+                        <script type="text/javascript">
+                            function sical(){
+                            var princ=document.getElementById("principal").value;
+                            var pcpa=document.getElementById("intr").value;
+                            var yr=document.getElementById("yr").value;
+                            var res=((princ*pcpa*yr)/100);
+                            document.getElementById("simpleint").insertAdjacentHTML('afterend','Result:'+res);
+                            }
+                        </script>
+                    </div>
+                    <div id="compint">Compound intr</div>
+                    <div id="liqcalc">cliwuid</div>
+                </div>
+                
+            
+            <div class="container-fluid" id="calculator">
+                    
+                </div>
+            <div class="choose-us-wraper">
+            
+                <div class="container">
+                
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        
+                            <div class="about-iphone wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                            
+                               
+                            
+                            </div>
+                        
+                        </div>
+                        
+            
+                    </div>
+                
+                </div>
+        
+        
+        </section>
+        
+        
+        <!-- Testimonials -->
+        <section class="testimonial">
+        
+            <div class="testimonial-overlay">
+            
+                <div class="container">
+                
+                    <div class="row">
+                    
+                        <div class="col-md-12 wow bounceInDown">
+                        
+                        
+                            <div id="carousel-testimonial" class="carousel slide" data-ride="carousel">
+                            
+                            
+                                <!-- indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+                                    <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+                                </ol>
+                                
+                                
+                                <!-- wrapper for slides -->
+                                <div class="carousel-inner">
+                                
+                                    <!-- item 03 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/MB34JB.jpg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>Cryptocurrency Bitcoin (BTC) Ethereum (ETH)</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>                                     
+
+                                    <!-- item 01 -->
+                                    <div class="item active text-center">
+                                    
+                                    
+                                        <img src="images/bank1.jpg" style="background-size: contain" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2> Banking policy </h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    <!-- item 02 -->
+                                    <div class="item text-center">
+                                    
+                                    
+                                        <img src="images/banner-image.jpeg" alt="testimonial" class="center-block">
+                                        
+                                        <div class="testimonial-caption">
+                                        
+                                            <h2>High Security</h2>
+                                        
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                
+                                </div>
+                                
+                                
+                            </div>
+                        
+                        
+                        
+                        </div>
+                        
+                        
+                    </div>
+                
+                
+                </div>
+            
+            
+            </div><!--testned-->
+        
+        
+        
+        </section>
+   |    <section><div>!!Video will appear here!!</div></section>
+        <!-- Counters -->
+        <section class="counter">
+        
+            <div class="counter-overlay">
+            
+                <div class="container wow bounceInLeft" data-wow-duration="1s">
+                    
+                    <div class="row text-center">
+                    
+                        <div class="col-md-6">
+                        
+                            <div class="counter-item">
+                            
+                                <div><i class="fa fa-check"></i></div>
+                                <h2><span class="counter-num"> 150 </span><span>+</span></h2>
+                                <p>Views</p>
+                            </div>
+                        
+                        </div>
+                        
+                        
+                        <div class="col-md-6">
+                        
+                            <div class="counter-item">
+                            
+                                <div><i class="fa fa-heart-o"></i></div>
+                                <h2><span class="counter-num"> 1000000000 </span><span>+</span></h2>
+                                <p>loves to you all!</p>
+                            </div>
+                        
+                        </div>
+                        
+                       
+                    
+                        
+                    
+                    </div>
+                    
+                
+                
+                </div>
+            
+            </div>
+            
+              
+        </section>
+        <section>
+        
+        
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+        
+            <div class="container">
+            
+                <div class="row">
+                
+                    <div class="col-md-6">
+                    
+                        <div id="copyright">
+                            <p>Copyright &copy; 2019 <a href="#"> - SL-1 PROJECT</a></p>
+                            <p><small>Designed by -<i> Salik Sayyed</i> (SY comp)</small></p>
+                            <p><small>Secured by -<i> Chirag Ratvekar</i> (SY comp)</small></p>
+                            <p><small>Coded by -<i> Sham Sulbhewar</i> (SY comp)</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    
+                            <div class="scroll-top">
+                                <a href="#HOME" id="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+                            </div>
+                    </div>
+                
+                
+                </div>
+            
+            </div>
+        
+        
+        </footer>
+        
+        
+        <!-- Bootstrap JavaScript -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Bx Slider JS -->
+        <script src="js/jquery.bxslider.min.js"></script>
+        
+        <!-- Add JS counter lib -->
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        
+        <!-- Add wow js lib -->
+        <script src="js/wow.min.js"></script>
+      
+        <!-- Custom Js -->
+        <script src="js/custom.js"></script>
+        
+    </body>
+
+
+</html>

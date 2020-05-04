@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing</title>    
+</head>
+<body>
+   <div  style="background-image: url(images/joy4.jpg);background-blend-mode: darken" id="login">
+             
+                <div id="frm">
+                <h3 style="font-family: cursive">Customer Name: </h3><input id="name">
+                <h3 style="font-family:cursive">Password: </h3><input id="passwd">
+                <button id="btn "class="btn-info" onClick="ann()">Display information</button>
+                </div>
+          <script type="text/javascript">
+          function ann(){
+            var a;
+            var a1=document.getElementById("name").value;
+            var a2=document.getElementById("passwd").value;
+            var an = new XMLHttpRequest();
+              var j=0;
+            an.open('GET','accounts.xml',false);
+            an.send();
+            var xmlData=an.responseXML;
+            if(!xmlData){
+                xmlData=(new DOMParser()).parseFromString(an.responseText,'text/xml');
+            }
+            var emp=xmlData.getElementsByTagName("DETAILS");
+           /* alert((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==(a2));
+            alert(emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data);
+            alert(emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data);*/
+            var i=emp.length;
+            if(((emp[0].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[0].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=0;
+            }else{
+                if(((emp[1].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[1].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=1;
+            }else{
+                if(((emp[2].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[2].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=2;
+            }else{
+                if(((emp[3].getElementsByTagName("PASSWORD")[0].firstChild.data)==a2)&&((emp[3].getElementsByTagName("USERNAME")[0].firstChild.data)==a1)){
+                alert(a1+"logged in");j=3;
+            };
+            };
+            };
+            };
+            /*  while(i>=0){alert(i);i=i-1;}
+              alert("outside first while");
+            while(i>=0){
+              alert(i);
+                var name=emp[i].getElementsByTagName("USERNAME")[0].firstChild.data;
+                var pass=emp[i].getElementByTagName("PASSWORD")[0].firstChild.data;
+                i=i-1;
+          if((a1==name)&&(a2==pass)){
+                alert("logged in!");
+                
+             }
+                
+            }  */
+              
+              document.getElementById("extra").setAttribute('value',j);
+              a= ("Username:"+" "+(emp[j].getElementsByTagName("USERNAME")[0].firstChild.data)+"\nDebt:  "+(emp[j].getElementsByTagName("DEBT")[0].firstChild.data)+"\nEmail:  "+(emp[j].getElementsByTagName("EMAIL")[0].firstChild.data));
+              alert(a);
+              document.getElementById("login").insertAdjacentHTML('beforeend',a);
+            // alert(a);
+        }
+    </script>
+                <!--login script-->
+    
+              
+                <!--end of login script-->
+                
+                </div>
+</body>
+</html>
